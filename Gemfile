@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'railties', '~> 6.1', '>= 6.1.7.2'
+gem 'devise'
 
 
 group :development, :test do
