@@ -1,0 +1,7 @@
+<h1>Title: <%= @play.title %></h1>
+<p><%= @play.description %></p>
+<h4><%= @play.director %></h4>
+
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_play_path %>
+<%= link_to 'Delete', @play, method: :delete, data:{confirm: 'are you sure?'} %>

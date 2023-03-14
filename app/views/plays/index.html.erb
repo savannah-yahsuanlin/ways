@@ -1,0 +1,13 @@
+<h1>Movie</h1>
+
+<div class="col-md-10 col-md-offset-1">
+	<% @plays.each do |f| %>
+		<div class="container">
+			<h2>Title: <%= link_to f.title, play_path(f) %></h2>
+			<p>Description: <%= f.description %></p>
+			<h4>Director: <%= f.director %></h4>
+		</div>
+	<% end %>
+</div>
+
+<%= link_to 'Create a movie', new_play_path %>
