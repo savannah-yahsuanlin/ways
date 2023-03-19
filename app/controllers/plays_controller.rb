@@ -1,14 +1,18 @@
 class PlaysController < ApplicationController
 	before_action :find_movie, only: [:show, :edit, :update, :destroy]
-	before_action :categories, only: [:new, :edit]
-
+	
 	def index
-		@plays = Play.all.order('created_at ASC')
+		if params[:category].blank?
+			@plays = Play.all.order('created_at DESC')
+		else
+			@category = Category.find_by(name: params[:category]).id
+			@plays = Play.where(:category_id => @category)
+		end
 	end
 
 	def new
 		@play = current_user.plays.build
-		#@categories = Category.all.map{ |c| [c.name, c.id]}
+		@categories = Category.all.map{ |c| [c.name, c.id]}
 	end
 
 	def create
@@ -25,6 +29,7 @@ class PlaysController < ApplicationController
 	end
 
 	def edit
+		@categories = Category.all.map{ |c| [c.name, c.id]}
 	end
 
 	def update
@@ -51,7 +56,5 @@ class PlaysController < ApplicationController
 		@play = Play.find(params[:id])
 	end
 
-	def categories 
-		@categories = Category.all.map{ |c| [c.name, c.id]}
-	end
+	
 end

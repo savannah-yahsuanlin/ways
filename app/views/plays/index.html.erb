@@ -1,10 +1,13 @@
+<h1><%= params[:category] %></h1>
 
-<% @plays.each do |f| %>
-	<div class="container">
-		<h2>Title: <%= link_to f.title, play_path(f) %></h2>
-		<p>Description: <%= f.description %></p>
-		<h4>Director: <%= f.director %></h4>
-	</div>
+<% if @plays.count == 0 %>
+	<h1>There are no movies in this genres </h1>
+<% else %>
+	<% @plays.each do |f| %>
+		<div class="container">
+			<h2>Title: <%= link_to f.title, play_path(f) %></h2>
+			<p>Geres: <%= f.category.name%></p>
+		</div>
+	<% end %>
 <% end %>
-
 
