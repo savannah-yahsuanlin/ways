@@ -1,0 +1,7 @@
+<%= simple_form_for([@play, @play.reviews.build]) do |f| %>
+	<div>
+		<%= f.input :rating %>
+	</div>
+	<%= f.input :comment %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
-	before_action: :review_params, only: [:create, :update, :destroy, :edit]
-	before_action: :find_play
-
+	before_action :find_play
 
 	def new
 		@review = Review.new
@@ -13,7 +11,7 @@ class ReviewsController < ApplicationController
 		@review.user_id = current_user.id
 
 		if @review.save
-			redirect_to @play
+			redirect_to play_path(@play)
 		else 
 			render 'new'
 		end
@@ -22,7 +20,7 @@ class ReviewsController < ApplicationController
 	private 
 
 	def review_params
-		params.require(:review).permit(:rating, :command)
+		params.require(:review).permit(:rating, :comment)
 	end
 
 	def find_play

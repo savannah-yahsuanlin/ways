@@ -9,3 +9,13 @@
 		<%= link_to 'Delete', @play, method: :delete, data:{confirm: 'are you sure?'} %>
 	<% end %>
 <% end %>
+
+<div class="row">
+	<div class="col-md-12">
+		<h1>Reviews</h1>
+		<%= render @play.reviews %>
+		<div>
+			<%= link_to 'add reviews', new_play_review_path(@play)%>
+		</div>
+	</div>
+</div>
