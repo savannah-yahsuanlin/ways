@@ -1,5 +1,13 @@
 <div class="col-md-10">
 	<p>Rating: <%=  review.rating %></p>
 	<p>Comment: <%= review.comment %></p>
+	<div class="col-md-12">
+		<% if user_signed_in? %>
+			<% if review.user_id == current_user.id %>
+				<%= link_to 'edit', edit_play_review_path(review.play, review) %>
+				<%= link_to 'delete', play_review_path(review.play, review), method: :delete %>
+			<% end %>
+		<% end %>
+	</div>
 </div>
 
