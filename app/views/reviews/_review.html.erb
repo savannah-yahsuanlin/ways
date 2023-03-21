@@ -1,4 +1,8 @@
 <div class="col-md-10">
+	<% review.rating.to_i.times do  %>
+ 		<span class="glyphicon glyphicon-star"></span>
+	<% end %>
+
 	<p>Rating: <%=  review.rating %></p>
 	<p>Comment: <%= review.comment %></p>
 	<div class="col-md-12">
