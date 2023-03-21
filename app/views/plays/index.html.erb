@@ -1,9 +1,9 @@
 <h1><%= params[:category] %></h1>
-<% if @plays.count > 0%>
+<% if @plays.count > 0 %>
 	<% @plays.each do |f| %>
 		<div class="container">
 			<h2>Title: <%= link_to f.title, play_path(f) %></h2>
-			<p>Geres: <%= f.category.name%></p>
+			<p>Geres: <%= f.category.name %></p>
 		</div>
 	<% end %>
 <% end %>
