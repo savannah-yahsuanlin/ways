@@ -1,3 +1,6 @@
+<% if @play.image.attached? %>
+	<%= image_tag @play.image.variant(resize: "500 x 500") %>
+<% end %>
 <h1>Title: <%= @play.title %></h1>
 <p>category_id: <%= @play.category.name %></p>
 <p><%= @play.description %></p>

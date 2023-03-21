@@ -33,6 +33,8 @@ gem 'bootstrap-sass'
 gem 'railties', '~> 6.1', '>= 6.1.7.2'
 gem 'devise'
 gem 'jquery-rails'
+gem "image_processing", ">= 1.2"
+
 
 
 group :development, :test do

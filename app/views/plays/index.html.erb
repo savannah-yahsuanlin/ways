@@ -2,6 +2,9 @@
 <% if @plays.count > 0 %>
 	<% @plays.each do |f| %>
 		<div class="container">
+			<% if f.image.attached? %>
+				<%= image_tag f.image, style: 'width: 200px; display: block' %>
+			<% end %>
 			<h2>Title: <%= link_to f.title, play_path(f) %></h2>
 			<p>Geres: <%= f.category.name %></p>
 		</div>
